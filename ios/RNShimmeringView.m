@@ -58,18 +58,7 @@
 - (void)tryCorrectSpeedFromDuration
 {
   if (_shimmeringDuration > 0) {
-    FBShimmerDirection direction = self.shimmeringDirection;
-    FBShimmeringLayer *layer = (FBShimmeringLayer *)self.layer;
-    CGRect bounds = layer.contentLayer.bounds;
-    
-    CGFloat length = (direction == FBShimmerDirectionDown || direction == FBShimmerDirectionUp) ? CGRectGetHeight(bounds) : CGRectGetWidth(bounds);
-    
-    CGFloat speed = 230;
-    if (length > 0) {
-      speed = length / _shimmeringDuration;
-    }
-    
-    [self setShimmeringSpeed:speed];
+    [self setShimmeringSpeed:(_shimmeringDuration/5)*230];
   }
 }
 
