@@ -41,5 +41,5 @@ repositories {
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
-    implementation 'com.github.MassiveMediaMatch:shimmer-android:master-SNAPSHOT'
+    implementation 'com.github.MassiveMediaMatch:shimmer-android:ec8261e'
 }
