@@ -11,6 +11,8 @@ import com.facebook.shimmer.ShimmerFrameLayout;
 
 public class RNShimmeringView extends ShimmerFrameLayout {
 
+    private Shimmer.Builder builder = new Shimmer.AlphaHighlightBuilder();
+
     public RNShimmeringView(Context context) {
         super(context);
     }
@@ -29,7 +31,15 @@ public class RNShimmeringView extends ShimmerFrameLayout {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    public void updateShimmer(Shimmer.Builder builder) {
+    public void updateShimmer() {
         setShimmer(builder.build());
+    }
+
+    public Shimmer.Builder getBuilder() {
+        return builder;
+    }
+
+    public void setBuilder(Shimmer.Builder builder) {
+        this.builder = builder;
     }
 }

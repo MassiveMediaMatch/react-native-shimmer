@@ -12,8 +12,6 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
 
     public static final String REACT_CLASS = "RNShimmeringView";
 
-    private Shimmer.Builder builder = new Shimmer.AlphaHighlightBuilder();
-
     @Override
     public String getName() {
         return REACT_CLASS;
@@ -24,36 +22,30 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
         return new RNShimmeringView(context);
     }
 
-    @ReactProp(name = "useColors", defaultBoolean = false)
-    public void useColors(RNShimmeringView view, boolean value) {
-        if (value) {
-            builder = new Shimmer.ColorHighlightBuilder();
-        } else {
-            builder = new Shimmer.AlphaHighlightBuilder();
-        }
-        view.updateShimmer(this.builder);
-    }
-
     @ReactProp(name = "highlightColor", defaultInt = 0xFFFFFFFF)
     public void setHighlightColor(RNShimmeringView view, String value) {
-        if (this.builder instanceof Shimmer.ColorHighlightBuilder) {
-            ((Shimmer.ColorHighlightBuilder)this.builder).setHighlightColor(Color.parseColor(value));
-        }
-        view.updateShimmer(this.builder);
+        Shimmer.Builder builder = view.getBuilder();
+        Shimmer.ColorHighlightBuilder newBuilder = new Shimmer.ColorHighlightBuilder();
+        newBuilder.copyFrom(builder.build());
+        newBuilder.setHighlightColor(Color.parseColor(value));
+        view.setBuilder(newBuilder);
+        view.updateShimmer();
     }
 
     @ReactProp(name = "baseColor", defaultInt = 0x4cffffff)
     public void setBaseColor(RNShimmeringView view, String value) {
-        if (this.builder instanceof Shimmer.ColorHighlightBuilder) {
-            ((Shimmer.ColorHighlightBuilder)this.builder).setBaseColor(Color.parseColor(value));
-        }
-        view.updateShimmer(this.builder);
+        Shimmer.Builder builder = view.getBuilder();
+        Shimmer.ColorHighlightBuilder newBuilder = new Shimmer.ColorHighlightBuilder();
+        newBuilder.copyFrom(builder.build());
+        newBuilder.setBaseColor(Color.parseColor(value));
+        view.setBuilder(newBuilder);
+        view.updateShimmer();
     }
 
     @ReactProp(name = "animating", defaultBoolean = true)
     public void setAnimating(RNShimmeringView view, boolean value) {
-        this.builder.setAutoStart(value);
-        view.updateShimmer(this.builder);
+        view.getBuilder().setAutoStart(value);
+        view.updateShimmer();
     }
 
     @ReactProp(name = "shimmeringOpacity", defaultFloat = 0.5f)
@@ -65,8 +57,8 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
             value = 0.0f;
         }
 
-        this.builder.setBaseAlpha(value);
-        view.updateShimmer(this.builder);
+        view.getBuilder().setBaseAlpha(value);
+        view.updateShimmer();
     }
 
     @ReactProp(name = "animationOpacity", defaultFloat = 1.0f)
@@ -78,8 +70,8 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
             value = 0.0f;
         }
 
-        this.builder.setHighlightAlpha(value);
-        view.updateShimmer(this.builder);
+        view.getBuilder().setHighlightAlpha(value);
+        view.updateShimmer();
     }
 
     @ReactProp(name = "shimmeringDirection")
@@ -100,8 +92,8 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
                 break;
         }
 
-        this.builder.setDirection(direction);
-        view.updateShimmer(this.builder);
+        view.getBuilder().setDirection(direction);
+        view.updateShimmer();
     }
 
     @ReactProp(name = "duration", defaultInt = 1000)
@@ -110,8 +102,8 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
             value = 0;
         }
 
-        this.builder.setDuration(value);
-        view.updateShimmer(this.builder);
+        view.getBuilder().setDuration(value);
+        view.updateShimmer();
     }
 
     @ReactProp(name = "pauseDuration", defaultInt = 400)
@@ -120,14 +112,14 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
             value = 0;
         }
 
-        this.builder.setRepeatDelay(value);
-        view.updateShimmer(this.builder);
+        view.getBuilder().setRepeatDelay(value);
+        view.updateShimmer();
     }
 
     @ReactProp(name = "tilt", defaultFloat = 0.0f)
     public void setTilt(RNShimmeringView view, int value) {
-        this.builder.setTilt(value);
-        view.updateShimmer(this.builder);
+        view.getBuilder().setTilt(value);
+        view.updateShimmer();
     }
 
     @ReactProp(name = "intensity", defaultFloat = 0.0f)
@@ -139,7 +131,7 @@ public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
             value = 0.0f;
         }
 
-        this.builder.setIntensity(value);
-        view.updateShimmer(this.builder);
+        view.getBuilder().setIntensity(value);
+        view.updateShimmer();
     }
 }
