@@ -6,7 +6,6 @@ import android.graphics.Color;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
-import com.facebook.shimmer.Shimmer;
 
 public class RNShimmerManager extends ViewGroupManager<RNShimmeringView> {
 

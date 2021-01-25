@@ -5,10 +5,6 @@ import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
 
-import com.facebook.shimmer.Shimmer;
-import com.facebook.shimmer.ShimmerFrameLayout;
-
-
 public class RNShimmeringView extends ShimmerFrameLayout {
 
     private Shimmer.Builder builder = new Shimmer.AlphaHighlightBuilder();

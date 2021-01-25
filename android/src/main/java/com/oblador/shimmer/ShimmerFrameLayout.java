@@ -6,7 +6,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-package com.facebook.shimmer;
+package com.oblador.shimmer;
 
 import android.annotation.TargetApi;
 import android.content.Context;
