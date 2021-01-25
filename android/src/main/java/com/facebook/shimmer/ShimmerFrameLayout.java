@@ -22,6 +22,8 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.oblador.shimmer.R;
+
 /**
  * Shimmer is an Android library that provides an easy way to add a shimmer effect to any {@link
  * View}. It is useful as an unobtrusive loading indicator, and was originally
