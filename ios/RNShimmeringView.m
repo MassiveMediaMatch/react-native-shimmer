@@ -58,7 +58,7 @@
 - (void)tryCorrectSpeedFromDuration
 {
   if (_shimmeringDuration > 0) {
-    [self setShimmeringSpeed:(_shimmeringDuration/5)*230];
+    [self setShimmeringSpeed:(_shimmeringDuration/10)*230];
   }
 }
 

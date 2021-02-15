@@ -107,8 +107,8 @@ public final class ShimmerDrawable extends Drawable {
     }
 
     final float tiltTan = (float) Math.tan(Math.toRadians(mShimmer.tilt));
-    final float translateHeight = mDrawRect.height() + 50 + tiltTan * mDrawRect.width();
-    final float translateWidth = mDrawRect.width() + 50 + tiltTan * mDrawRect.height();
+    final float translateHeight = mDrawRect.height() + 100 + tiltTan * mDrawRect.width();
+    final float translateWidth = mDrawRect.width() + 100 + tiltTan * mDrawRect.height();
     final float dx;
     final float dy;
     final float animatedValue = mValueAnimator != null ? mValueAnimator.getAnimatedFraction() : 0f;
@@ -176,7 +176,7 @@ public final class ShimmerDrawable extends Drawable {
     }
 
     mValueAnimator =
-        ValueAnimator.ofFloat(0f, 1f + (float) (mShimmer.repeatDelay / mShimmer.animationDuration));
+        ValueAnimator.ofFloat(0f, 1f);
     mValueAnimator.setRepeatMode(mShimmer.repeatMode);
     mValueAnimator.setStartDelay(mShimmer.startDelay);
     mValueAnimator.setRepeatCount(mShimmer.repeatCount);
